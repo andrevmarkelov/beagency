@@ -6,6 +6,7 @@ use App\Entity\ContactForm;
 use App\Entity\Services;
 use App\Form\ContactFormType;
 use App\Repository\AboutItemRepository;
+use App\Repository\FactBlockRepository;
 use App\Repository\FaqRepository;
 use App\Repository\FormPageRepository;
 use App\Repository\IndexServicesRepository;
@@ -22,7 +23,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
-    public function index(PageRepository $pageInfo, OfferRepository $offerItem, PartnersRepository $partnersItem, IndexServicesRepository $servicesItems): Response
+    public function index(PageRepository $pageInfo, OfferRepository $offerItem, PartnersRepository $partnersItem, IndexServicesRepository $servicesItems, FactBlockRepository $factBlockItem): Response
     {
         // 0 - home page
         // 1 - about us page
@@ -33,12 +34,14 @@ class IndexController extends AbstractController
         $offer = $offerItem->findAll();
         $partners = $partnersItem->findAll();
         $services = $servicesItems->findOneBy(['id' => 1]);
+        $factBlock = $factBlockItem->findOneBy(['id' => 1]);
 
         return $this->render('index/index.html.twig', [
             'page' => $page,
             'offer' => $offer,
             'partners' => $partners,
-            'services' => $services
+            'services' => $services,
+            'factBlock' => $factBlock
         ]);
     }
 
@@ -114,6 +117,7 @@ class IndexController extends AbstractController
             'title' => $services->getTitle(),
             'imageName' => $services->getImageName(),
             'description' => $services->getDescription(),
+            'short_description' => $services->getShortDescription(),
             'titleTextBlock' => $services->getTitleTextBlock(),
             'textBlock' => $services->getTextBlock(),
             'imageBlock' => $services->getImageBlock(),

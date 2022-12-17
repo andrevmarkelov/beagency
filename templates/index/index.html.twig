@@ -138,42 +138,25 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
-                            <div class="image_wrapper"><img class="scale-with-grid" src="{{ asset('assets/images/agency4-home-numbers-image.jpg') }}" alt="agency4-home-numbers-image" width="510" height="696"> </div>
+                            <div class="image_wrapper"><img class="scale-with-grid" src="{{ asset('upload/images/') }}{{ factBlock.imageName }}" alt="agency4-home-numbers-image" width="510" height="696"> </div>
                         </div>
                     </div>
                     <div class="col-md-6" style="padding:30px 2%">
                         <div class="row">
                             <div class="col-12">
-                                <h2>Let the facts <span style="color: #4989fd;">convince</span> you</h2>
+                                <h2>{{ factBlock.title1 }} <span style="color: #4989fd;">{{ factBlock.title2 }}</span></h2>
                                 <hr class="no_line" style="margin: 0 auto 20px auto">
-                                <p style="color:#ADADC1;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. </p>
+                                <p style="color:#ADADC1;"> {{ factBlock.description }} </p>
                             </div>
-                            <div class="col-md-4">
-                                <div class="column_attr clearfix align_left mobile_align_center" style="padding:10px;"> <i class="icon-plus"></i>
-                                    <hr class="no_line" style="margin: 0 auto 10px auto">
-                                    <div class="google_font" style="font-family:'Nunito Sans',Arial,Tahoma,sans-serif;font-size:42px;line-height:42px;font-weight:400;letter-spacing:0px;color:#15c68f;"> <span class="counter-inline animate-math"><span class="number" data-to="64">64</span></span>% </div>
-                                    <p> Increase of total
-                                        <br> visit on website </p>
+                            {% for factBlockCounting in factBlock.items %}
+                                <div class="col-md-4">
+                                    <div class="column_attr clearfix align_left mobile_align_center" style="padding:10px;"> <i class="icon-plus"></i>
+                                        <hr class="no_line" style="margin: 0 auto 10px auto">
+                                        <div class="google_font" style="font-family:'Nunito Sans',Arial,Tahoma,sans-serif;font-size:42px;line-height:42px;font-weight:400;letter-spacing:0px;color:#15c68f;"> <span class="counter-inline animate-math"><span class="number" data-to="64">{{ factBlockCounting.number }}</span></span>% </div>
+                                        <p style="max-width: 129px;margin: 0 auto;">{{ factBlockCounting.description }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="column_attr clearfix align_left mobile_align_center" style="padding:10px;"> <i class="icon-plus"></i>
-                                    <hr class="no_line" style="margin: 0 auto 10px auto">
-                                    <div class="google_font" style="font-family:'Nunito Sans',Arial,Tahoma,sans-serif;font-size:42px;line-height:42px;font-weight:400;letter-spacing:0px;color:#EE9C32;"> <span class="counter-inline animate-math"><span class="number" data-to="38">38</span></span>% </div>
-                                    <p> <span style="color: #0c117b;">Increase of total
-																<br>
-																visit on website</span> </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="column_attr clearfix align_left mobile_align_center" style="padding:10px;"> <i class="icon-plus"></i>
-                                    <hr class="no_line" style="margin: 0 auto 10px auto">
-                                    <div class="google_font" style="font-family:'Nunito Sans',Arial,Tahoma,sans-serif;font-size:42px;line-height:42px;font-weight:400;letter-spacing:0px;color:#0C117B;"> <span class="counter-inline animate-math"><span class="number" data-to="49">49</span></span>% </div>
-                                    <p> <span style="color: #0c117b;">Increase of total
-																<br>
-																visit on website</span> </p>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

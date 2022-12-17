@@ -1,18 +1,15 @@
-<div class="section mcb-section bg-cover" style="padding-top:70px;background-image:url({{ asset('assets/images/agency4-home-newsletter-bg.jpg') }});background-repeat:no-repeat;background-position:center">
+<div class="section mcb-section bg-cover" style="padding-top:70px;background-image:url({{ asset('upload/images/') }}{{ subscribeBlock.imageName }});background-repeat:no-repeat;background-position:center">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="column_attr clearfix align_center">
-                    <h2><span style="color: #4989fd;">Don’t miss
-															<br>
-															our </span>future updates!</h2> </div>
+                    <h2 style="max-width: 400px; margin: 0 auto;"><span style="color: #4989fd;">{{ subscribeBlock.title1 }}</span> {{ subscribeBlock.title2 }}</h2> </div>
             </div>
             <div class="col-12">
                 <hr class="no_line" style="margin:0 auto 40px"> </div>
             <div class="col-12">
                 <div class="column_attr clearfix align_center">
-                    <p style="color:#ADADC1;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        <br> Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. </p>
+                    <p style="color:#ADADC1; max-width: 400px; margin: 0 auto;"> {{ subscribeBlock.description }} </p>
                 </div>
             </div>
             <div class="col-12">
@@ -28,7 +25,7 @@
                                 <div class="row">
                                     <div class="col-md-7">{{ form_widget(subscribers_form.email) }}</div>
                                     <div class="col-md-5">
-                                        <button class="button-primary" id="submit" type="submit">Subscribe</button>
+                                        <button class="button-primary" id="submit" type="submit">{{ subscribeBlock.buttonTitle }}</button>
                                     </div>
                                 </div>
                             {{ form_end(subscribers_form) }}
