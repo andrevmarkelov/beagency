@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Subscribers;
 use App\Form\SubscribersFormType;
+use App\Repository\SubscribeBlockRepository;
 use App\Repository\SubscribersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,13 +35,22 @@ class SubscribersController extends AbstractController
         return $this->json('Error', 400);
     }
 
-    public function renderSubscriberForm()
+    /**
+     * Subscription block rendering
+     *
+     * @param SubscribeBlockRepository $subscribeBlockItem
+     * @return Response
+     */
+    public function renderSubscriberForm(SubscribeBlockRepository $subscribeBlockItem)
     {
         $subscriber = new Subscribers();
         $form = $this->createForm(SubscribersFormType::class, $subscriber, ['action' => $this->generateUrl('app_subscribers'), 'attr' => ['id' => 'subscriberForm']]);
 
+        $subscribeBlock = $subscribeBlockItem->findOneBy(['id' => 1]);
+
         return $this->render('subscribers/index.html.twig', [
             'subscribers_form' => $form->createView(),
+            'subscribeBlock' => $subscribeBlock
         ]);
     }
 }
