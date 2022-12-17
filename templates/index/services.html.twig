@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.pageTitle }}{% endblock %}
+
+{% block body %}
+    <div id="Wrapper">
+        <div id="Header_wrapper">
+            <header id="Header">
+                <div id="Top_bar">
+                    <div class="row">
+                        <div class="column one">
+                            <div class="top_bar_left clearfix">
+                                <div class="logo">
+                                    <a id="logo" href="{{ path('app_index') }}" title="BeAgency 4 - Betheme" data-height="60" data-padding="15"><img class="logo-main scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" data-retina="{{ asset('assets/images/Logo@2x.png') }}" data-height="50" alt="Logo"><img class="logo-sticky scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" data-retina="{{ asset('assets/images/Logo@2x.png') }}" data-height="50" alt="Logo"><img class="logo-mobile scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" data-retina="{{ asset('assets/images/Logo@2x.png') }}" data-height="50" alt="Logo"><img class="logo-mobile-sticky scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" data-retina="{{ asset('assets/images/Logo@2x.png') }}" data-height="50" alt="Logo"></a>
+                                </div>
+                                <div class="menu_wrapper">
+                                    <nav id="menu">
+                                        <ul id="menu-main-menu" class="menu menu-main">
+                                            <li> <a href="{{ path('app_index') }}"><span>Home</span></a> </li>
+                                            <li> <a href="{{ path('about') }}"><span>About us</span></a> </li>
+                                            <li class="current-menu-item"> <a href="{{ path('services') }}"><span>Services</span></a> </li>
+                                            <li> <a href="{{ path('faq') }}"><span>FAQ</span></a> </li>
+                                            <li> <a href="{{ path('contacts') }}"><span>Contact</span></a> </li>
+                                        </ul>
+                                    </nav><a class="responsive-menu-toggle" href="#"><i class="icon-menu-fine"></i></a> </div>
+                            </div>
+                            <div class="top_bar_right">
+                                <div class="top_bar_right_wrapper"> <a href="{{ path('contacts') }}" class="action_button" target="_blank">Contact us</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div id="Content">
+            <div class="section mcb-section full-width" style="padding-top:125px;padding-bottom:125px;background-image:url({{ asset('upload/images/') }}{{ page.imageName }});background-repeat:no-repeat;background-position:center">
+                <div class="">
+                    <div class="row" style="padding:30px 16%">
+                        <div class="col-12">
+                            <h2><span style="color: #4989fd;">{{ page.title1 }}
+															<br>
+														</span>{{ page.title2 }}</h2>
+                            <hr class="no_line" style="margin: 0 auto 15px auto">
+                            <p style="color:#ADADC1;" class="page-description"> {{ page.description }} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" style="padding-top:100px">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="portfolio_group lm_wrapper isotope col-2 masonry" style="max-width:100%;">
+                                {% for item in services %}
+                                    <li class="portfolio-item isotope-item has-thumbnail">
+                                        <div class="portfolio-item-fw-bg">
+                                            <div class="portfolio-item-fill"></div>
+                                            <div class="list_style_header">
+                                                <h3 class="entry-title"><a class="link" href="{{ path('services_detail', {'slug' : item.slug}) }}">{{ item.title }}</a></h3>
+                                                <div class="links_wrapper"> <a href="#" class="button the-icon portfolio_prev_js"><span class="button_icon"><i class="icon-up-open"></i></span></a><a href="#" class="button the-icon portfolio_next_js"><span class="button_icon"><i class="icon-down-open"></i></span></a><a href="{{ path('services_detail', {'slug' : item.slug}) }}" class="button button_theme has-icon"><span class="button_icon"><i class="icon-link"></i></span><span class="button_label">Read more</span></a> </div>
+                                            </div>
+                                            <div class="image_frame scale-with-grid">
+                                                <div class="image_wrapper">
+                                                    <a href="{{ path('services_detail', {'slug' : item.slug}) }}">
+                                                        <div class="mask"></div><img width="780" height="437" src="{{ asset('upload/images/') }}{{ item.imageName }}" class="scale-with-grid wp-post-image" loading="lazy"></a>
+                                                    <div class="image_links double"> <a href="{{ asset('upload/images/') }}{{ item.imageName }}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a><a href="{{ path('services_detail', {'slug' : item.slug}) }}" class="link"><i class="icon-link"></i></a> </div>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <div class="title_wrapper">
+                                                    <h5 class="entry-title"><a class="link" href="{{ path('services_detail', {'slug' : item.slug}) }}">{{ item.title }}</a></h5>
+                                                </div>
+                                                <div class="details-wrapper">
+                                                    <dl> <dt>
+                                                            Date
+                                                        </dt>
+                                                        <dd> June 4, 2022 </dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="desc-wrapper"> {{ item.shortDescription }} </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ render(controller('App\\Controller\\SubscribersController::renderSubscriberForm')) }}
+        </div>
+{% endblock %}

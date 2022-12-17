@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.pageTitle }}{% endblock %}
+{% block description %}{{ page.pageDescription }}{% endblock %}
+
+{% block body %}
+    <div id="Wrapper">
+        <div id="Header_wrapper">
+            <header id="Header">
+                <div id="Top_bar">
+                    <div class="row">
+                        <div class="column one">
+                            <div class="top_bar_left clearfix">
+                                <div class="logo">
+                                    <a id="logo" href="{{ path('app_index') }}" title="BeAgency 4 - Betheme" data-height="60" data-padding="15"><img class="logo-main scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" data-retina="{{ asset('assets/images/Logo@2x.png') }}" data-height="50" alt="Logo"><img class="logo-sticky scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" data-retina="{{ asset('assets/images/Logo@2x.png') }}" data-height="50" alt="Logo"><img class="logo-mobile scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" data-retina="{{ asset('assets/images/Logo@2x.png') }}" data-height="50" alt="Logo"><img class="logo-mobile-sticky scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" data-retina="{{ asset('assets/images/Logo@2x.png') }}" data-height="50" alt="Logo"></a>
+                                </div>
+                                <div class="menu_wrapper">
+                                    <nav id="menu">
+                                        <ul id="menu-main-menu" class="menu menu-main">
+                                            <li> <a href="{{ path('app_index') }}"><span>Home</span></a> </li>
+                                            <li> <a href="{{ path('about') }}"><span>About us</span></a> </li>
+                                            <li> <a href="{{ path('services') }}"><span>Services</span></a> </li>
+                                            <li> <a href="{{ path('faq') }}"><span>FAQ</span></a> </li>
+                                            <li class="current-menu-item"> <a href="{{ path('contacts') }}"><span>Contact</span></a> </li>
+                                        </ul>
+                                    </nav><a class="responsive-menu-toggle" href="#"><i class="icon-menu-fine"></i></a> </div>
+                            </div>
+                            <div class="top_bar_right">
+                                <div class="top_bar_right_wrapper"> <a href="{{ path('contacts') }}" class="action_button" target="_blank">Contact us</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div id="Content">
+            <div class="section mcb-section full-width" style="padding-top:125px;padding-bottom:125px;background-image:url({{ asset('upload/images/') }}{{ page.imageName }});background-repeat:repeat;background-position:right center">
+                <div class="container">
+                    <div class="row" style="padding:30px 0 0 12%">
+                        <div class="col-12">
+                            <h2><span style="color: #4989fd;">{{ page.title1 }}
+															<br>
+														</span>{{ page.title2 }}</h2>
+                            <hr class="no_line" style="margin: 0 auto 15px auto">
+                            <p style="color:#ADADC1;" class="page-description"> {{ page.description }} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section mcb-section bg-cover bg-cover" style="padding-top:80px;padding-bottom:35px;background-image:url({{ asset('upload/images/') }}{{ formPageContent.imageName }});background-repeat:no-repeat;background-position:center;background-attachment:fixed;background-size:cover">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="column_attr clearfix align_center">
+                                <h2><span style="color: #4989fd;">{{ formPageContent.title1 }}</span>
+                                    <br>
+                                    <span style="color: #fff;">{{ formPageContent.title2 }}</span></h2> </div>
+                        </div>
+                        <div class="col-12">
+                            <hr class="no_line" style="margin:0 auto 20px"> </div>
+                        <div class="col-12 text-center">
+                            <p style="color:#FFF; margin: 0 auto;" class="page-description"> {{ formPageContent.description }} </p>
+                        </div>
+                        <div class="col-12">
+                            <hr class="no_line" style="margin:0 auto 20px"> </div>
+                        <div class="col-12 text-center">
+                            <div class="column_attr clearfix align_center mobile_align_center" style="padding:0px 14%;">
+                                <div id="contactWrapper">
+                                    <div id="contactform">
+                                        {{ form_start(contact_form) }}
+                                        <div class="column one-second">{{ form_widget(contact_form.name) }}</div>
+                                        <!-- One Second (1/2) Column -->
+                                        <div class="column one-second">{{ form_widget(contact_form.email) }}</div>
+                                        <div class="column one">{{ form_widget(contact_form.subject) }}</div>
+                                        <div class="column one">{{ form_widget(contact_form.message) }}</div>
+                                        <div class="column one">
+                                            <button class="button-primary" id="sumbit" type="submit">Send A Message</button>
+                                        </div>
+                                        {{ form_end(contact_form) }}
+                                        <div id="success_message" style="display:none">
+                                            <h3 style="color: #4989fd;">Submitted the form successfully!</h3>
+                                            <p style="color: #ffffff;">We will get back to you soon.</p>
+                                        </div>
+                                        <div id="error_message" style="width:100%; height:100%; display:none;">
+                                            <h3 style="color: #f74371;">Error</h3>
+                                            <p style="color: #ffffff;">Sorry there was an error sending your form.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

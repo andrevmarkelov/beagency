@@ -1,0 +1,110 @@
+.page-description {
+    max-width: 400px;
+}
+
+.section.mcb-section.equal-height-wrap.mobile_small_padding:nth-child(2n) .container .row {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.faq .question .title, .faq .question .answer {
+    padding-left: 70px;
+}
+
+.faq .question .title {
+    padding: 20px 40px 20px 80px;
+    font-size: 15px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.faq .question {
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    margin-bottom: 0;
+    position: relative;
+    background: none;
+}
+
+.faq .question.active .title {
+    color: #1645f4;
+}
+
+.faq .question .answer {
+    padding: 0 20px 20px 80px;
+    overflow: hidden;
+    display: none;
+}
+
+.faq .question .title>.acc-icon-plus {
+    display: block;
+}
+
+.faq .question .title>.acc-icon-plus, .faq .question .title>.acc-icon-minus {
+    font-size: 17px;
+    line-height: 17px;
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 21px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: rgba(0, 0, 0, .25);
+}
+
+.faq .question .title .num {
+    position: absolute;
+    left: 27px;
+    top: 20px;
+    font-weight: bold;
+}
+
+.style-simple .faq .question {
+    border-color: rgba(0, 0, 0, .08);
+}
+
+.faq .question:after {
+    content: "";
+    width: 60px;
+    height: 100%;
+    background: rgba(0, 0, 0, .03);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.faq .question:after {
+    content: "";
+    display: none;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #ccc;
+}
+
+.faq .question:after {
+    background-color: #1645f4;
+}
+
+.question.active {
+    border-left: 2px solid #1645f4 !important;
+}
+
+ul.portfolio_group .portfolio-item .portfolio-item-fw-bg .list_style_header .entry-title a,
+ul.portfolio_group .portfolio-item .portfolio-item-fw-bg .desc .title_wrapper .entry-title a {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+ul.portfolio_group .portfolio-item .portfolio-item-fw-bg .desc .desc-wrapper {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

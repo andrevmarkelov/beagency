@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="description" content="{% block description %}description{% endblock %}">
+        <!-- Mobile Specific Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+        <!-- Fonts -->
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito+Sans:100,200,300,400,400italic,500,600,700,700italic,900'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,400italic,500,600,700,700italic,900'>
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <!--CSS -->
+        <link rel='stylesheet' href='{{ asset('assets/css/structure.css') }}'>
+        <link rel='stylesheet' href='{{ asset('assets/css/agency4.css') }}'>
+        <!-- Revolution Slider -->
+        <link rel="stylesheet" href="{{ asset('assets/css/rs6.css') }}">
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body class="home page template-slider style-simple button-round layout-full-width if-overlay if-border-hide no-content-padding header-transparent header-fw sticky-header sticky-tb-color ab-hide subheader-both-left menu-link-color menuo-right menuo-no-borders mobile-tb-center mobile-side-slide mobile-mini-mr-lc tablet-sticky mobile-header-mini mobile-sticky">
+        {% block body %}{% endblock %}
+        <footer id="Footer" class="clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <hr class="no_line" style="margin:0 auto 100px"> </div>
+                    <div class="col-md-6">
+                        <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+                            <div class="image_wrapper"><img class="scale-with-grid" src="{{ asset('assets/images/Logo.png') }}" alt="Logo" width="207" height="50"> </div>
+                        </div>
+                        <hr class="no_line" style="margin: 0 auto 30px auto"> Level 13,2 Elizabeth St,
+                        <br> Melbourne, Victoria 3000,
+                        <br> Australia </div>
+                    <div class="col-md-3">
+                        <h6>Services</h6><a href="#" style="color:inherit">Complex Page Ranking</a>
+                        <br> <a href="#" style="color:inherit">Site Optimisation</a>
+                        <br> <a href="#" style="color:inherit">User Retention</a>
+                        <br> <a href="#" style="color:inherit">Complex Monitoring</a>
+                        <br> <a href="#" style="color:inherit">Boosting Ranking</a>
+                        <br> </div>
+                    <div class="col-md-3">
+                        <h6>Website</h6><a href="{{ path('about') }}" style="color:inherit">About Us</a>
+                        <br> <a href="#" style="color:inherit">Privacy Policy</a>
+                        <br> <a href="content/agency4/about.html" style="color:inherit">Our Team</a>
+                        <br> <a href="{{ path('contacts') }}" style="color:inherit">Contact</a> </div>
+                    <div class="col-12">
+                        <hr class="no_line" style="margin:0 auto 70px"> </div>
+                </div>
+            </div>
+            <div class="footer_copy">
+                <div class="container">
+                    <div class="column one"> <a id="back_to_top" class="footer_button" href><i class="icon-up-open-big"></i></a>
+                        <div class="copyright"> &copy; 2021 - BeTheme. Muffin group - HTML by <a target="_blank" rel="nofollow" href="№">BeantownThemes</a> </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+        <div id="Side_slide" class="right dark" data-width="250">
+            <div class="close-wrapper"> <a href="#" class="close"><i class="icon-cancel-fine"></i></a> </div>
+            <div class="extras"> <a href="#" class="action_button" target="_blank">Buy now</a>
+                <div class="extras-wrapper"></div>
+            </div>
+            <div class="menu_wrapper"></div>
+        </div>
+        <div id="body_overlay"></div>
+        <!-- JS -->
+        <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery-migrate-3.4.0.min.js') }}"></script>
+        <script src="{{ asset('assets/js/mfn.menu.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.plugins.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.jplayer.min.js') }}"></script>
+        <script src="{{ asset('assets/js/animations.js') }}"></script>
+        <script src="{{ asset('assets/js/translate3d.js') }}"></script>
+        <script src="{{ asset('assets/js/scripts.js') }}"></script>
+        <script src="{{ asset('assets/js/revolution.tools.min.js') }}"></script>
+        <script src="{{ asset('assets/js/rs6.min.js') }}"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+    </body>
+</html>
