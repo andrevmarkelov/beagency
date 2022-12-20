@@ -163,4 +163,19 @@ class IndexController extends AbstractController
             'contact_form' => $form->createView()
         ]);
     }
+
+    /**
+     * Render Footer
+     *
+     * @param ServicesRepository $listServices
+     * @return Response
+     */
+    public function renderFooter(ServicesRepository $listServices): Response
+    {
+        $serviceLinks = $listServices->findBy(array(), array('id' => 'DESC'), 5, 0);
+
+        return $this->render('index/footer.html.twig', [
+            'serviceLinks' => $serviceLinks
+        ]);
+    }
 }
