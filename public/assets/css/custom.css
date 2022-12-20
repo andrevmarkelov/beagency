@@ -108,3 +108,10 @@ ul.portfolio_group .portfolio-item .portfolio-item-fw-bg .desc .desc-wrapper {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+.service-links {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
