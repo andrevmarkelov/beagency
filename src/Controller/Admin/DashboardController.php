@@ -50,8 +50,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Contact Form', 'fa fa-list', FormPage::class)
         ]);
 
-        yield MenuItem::linkToCrud('Services', 'fa fa-cog', Services::class);
-        yield MenuItem::linkToCrud('Settings', 'fa fa-bookmark', PageSettings::class);
+        yield MenuItem::linkToCrud('Services', 'fa fa-bookmark', Services::class);
+        yield MenuItem::linkToCrud('Settings', 'fa fa-cog', PageSettings::class);
         yield MenuItem::section('Forms');
         yield MenuItem::linkToCrud('Subscribers', 'fa fa-users', Subscribers::class);
         yield MenuItem::linkToCrud('Messages', 'fa fa-envelope', ContactForm::class);
