@@ -12,6 +12,7 @@ use App\Repository\FormPageRepository;
 use App\Repository\IndexServicesRepository;
 use App\Repository\OfferRepository;
 use App\Repository\PageRepository;
+use App\Repository\PageSettingsRepository;
 use App\Repository\PartnersRepository;
 use App\Repository\ServicesRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,7 +24,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
-    public function index(PageRepository $pageInfo, OfferRepository $offerItem, PartnersRepository $partnersItem, IndexServicesRepository $servicesItems, FactBlockRepository $factBlockItem): Response
+    public function index(PageRepository $pageInfo, OfferRepository $offerItem, PartnersRepository $partnersItem, IndexServicesRepository $servicesItems, FactBlockRepository $factBlockItem, PageSettingsRepository $pageSettings): Response
     {
         // 0 - home page
         // 1 - about us page
@@ -35,13 +36,15 @@ class IndexController extends AbstractController
         $partners = $partnersItem->findAll();
         $services = $servicesItems->findOneBy(['id' => 1]);
         $factBlock = $factBlockItem->findOneBy(['id' => 1]);
+        $settings = $pageSettings->findOneBy(['id' => 1]);
 
         return $this->render('index/index.html.twig', [
             'page' => $page,
             'offer' => $offer,
             'partners' => $partners,
             'services' => $services,
-            'factBlock' => $factBlock
+            'factBlock' => $factBlock,
+            'settings' => $settings
         ]);
     }
 
@@ -170,12 +173,14 @@ class IndexController extends AbstractController
      * @param ServicesRepository $listServices
      * @return Response
      */
-    public function renderFooter(ServicesRepository $listServices): Response
+    public function renderFooter(ServicesRepository $listServices, PageSettingsRepository $pageSettings): Response
     {
-        $serviceLinks = $listServices->findBy(array(), array('id' => 'DESC'), 5, 0);
+        $serviceLinks = $listServices->findBy(array(), array('id' => 'DESC'), 4, 0);
+        $settings = $pageSettings->findOneBy(['id' => 1]);
 
         return $this->render('index/footer.html.twig', [
-            'serviceLinks' => $serviceLinks
+            'serviceLinks' => $serviceLinks,
+            'settings' => $settings
         ]);
     }
 }
